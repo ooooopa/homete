@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>つぶやき一覧</h2>
+  
+  <div class="table-responsive">
+    <table class="table">
+      <% @achievements.each do |achievement| %>
+        <tr class="warning">
+            <td class="warning"><%= achievement.content %></td>
+            <td class="warning"><%= link_to "ほめる", achievement_path(achievement.id) %></td>
+            <td class="warning"><%= link_to "編集", edit_achievement_path(achievement.id) %></td>
+            <td class="warning"><%= link_to "削除", achievement_path(achievement.id), method: :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+</div>

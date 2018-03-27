@@ -1,0 +1,26 @@
+<%= form_with(model:@achievement, local:true, url: "/achievement") do |form| %>
+    <% if @achievement.errors.any? %>
+        <div>
+            <h2><%= @achievement.errors.count %>件のエラーがあります。</h2>
+
+            <ul>
+                <% @achievement.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>    
+        
+
+    <div>
+        <%= form.text_area :content, class:"form-control" %>
+    </div>
+    <div class="button-wrapper">
+        <div class="row">
+            <%= form.submit "つぶやく", class: "btn btn-warning col-md-offset-5 col-md-3"%>
+        </div>
+    </div>
+
+<% end %>
+
+

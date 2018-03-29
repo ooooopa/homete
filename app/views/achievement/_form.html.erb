@@ -1,4 +1,4 @@
-<%= form_with(model:@achievement, local:true, url: "/achievement") do |form| %>
+<%= form_with(model:@achievement, local:true, url:choose_new_or_edit) do |form| %>
     <% if @achievement.errors.any? %>
         <div>
             <h2><%= @achievement.errors.count %>件のエラーがあります。</h2>
@@ -17,7 +17,7 @@
     </div>
     <div class="button-wrapper">
         <div class="row">
-            <%= form.submit "つぶやく", class: "btn btn-warning col-md-offset-5 col-md-3"%>
+            <%= form.submit "つぶやく", class: "btn btn-warning col-md-offset-8 col-md-3 col-sm-offset-8 col-sm-3 col-xs-offset-8 col-xs-3"%>
         </div>
     </div>
 

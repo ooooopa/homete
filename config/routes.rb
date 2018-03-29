@@ -1,11 +1,21 @@
 Rails.application.routes.draw do
-  get 'achievement/index'
 
     root to: "achievement#index"
+    resources :message do
+      collection do
+        post:confirm
+        end      
+      member do
+        get:new
+      end
+    end
+    
+    
+    
     resources :achievement do
         collection do
-            post:confirm
-            get:list
+          post:confirm
+          get:list
         end
     end
 end

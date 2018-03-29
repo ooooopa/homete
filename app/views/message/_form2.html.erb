@@ -1,0 +1,31 @@
+<%= form_with(model:@message, local:true, url:choose_new_or_edit2) do |form| %>
+    <% if @message.errors.any? %>
+        <div>
+            <h2><%= @message.errors.count %>件のエラーがあります。</h2>
+
+            <ul>
+                <% @message.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+
+    <div>
+        <% if action_name != "edit" %>
+            <%= form.hidden_field :achievement_id, :value => @achievement.id %>
+        <% end %>
+        <%= form.text_area :message, class:"form-control" %>
+    </div>
+    <div class="button-wrapper">
+        <div class="row">
+            <%= form.submit "ほめる", class: "btn btn-warning col-md-offset-8 col-md-3 col-sm-offset-8 col-sm-3 col-xs-offset-8 col-xs-3"%>
+
+        </div>
+    </div>
+<% end %>
+
+
+
+

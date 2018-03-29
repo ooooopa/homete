@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            <h4>以下の内容で投稿していいですか？</h4>
+        </div>
+    
+
+        <div class="panel-body">
+            <%= form_with(model:@achievement, url:achievement_index_path, local:true) do |form| %>
+                <%= form.hidden_field :content %>
+                <p><%= @achievement.content %></p>
+                <div class="row">
+                <%= form.submit "投稿する", class: "btn btn-warning col-md-offset-6 col-md-2" %>
+            <% end %>
+        
+            <%= form_with(model:@achievement, url:new_achievement_path, local:true, method:"get") do |form| %>
+                <%= form.hidden_field :content %>
+                <%= form.submit "戻る", name: "back", class: "btn btn-warning col-md-offset-1 col-md-2" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

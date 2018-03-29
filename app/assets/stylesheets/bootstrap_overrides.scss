@@ -25,6 +25,30 @@
     margin-bottom:30px;
 }
 
-.table-responsive{
+.table{
     margin-top:30px;
+}
+
+.table tbody tr td{
+    vertical-align:middle;
+}
+
+.btn-danger{
+    background-color:#d7847e;
+    border-color:#d7847e;
+}
+
+.btn-danger:hover{
+    background-color:#d7847e;
+    border-color:#d7847e;
+}
+
+.btn-info{
+    background-color:#dd9cb4e8;
+    border-color:#dd9cb4;
+}
+
+.btn-info:hover{
+    background-color:#dd9cb4e8;
+    border-color:#dd9cb4;
 }

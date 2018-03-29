@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            <h4>ほめてみよう</h4>
+        </div>
+
+        <div class="panel-body">
+            <% if @message.achievement_id != nil %>
+                <% @achievement = Achievement.find(@message.achievement_id) %>
+                <%= @achievement.content %>
+            <% else %>
+                <%= @achievement.content %>
+            <% end %>
+        </div>
+        
+        <div class="panel-body">
+            <%= render "form2" %>
+        </div>
+        
+        
+    </div>
+</div>

@@ -1,5 +1,5 @@
 .jumbotron{
-    background:url(<%= asset_path 'hand.jpg' %>)
+    background:url('hand.jpg')
     right
     no-repeat;
     background-size:cover;

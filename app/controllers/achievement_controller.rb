@@ -1,4 +1,5 @@
 class AchievementController < ApplicationController
+  before_action :login_check, only: [:new, :edit, :destroy]
   before_action :set_achievement, only: [:edit, :update, :destroy]
   
   def index
@@ -22,7 +23,6 @@ class AchievementController < ApplicationController
   end
   
   def list
-    #@achievements = Achievement.all
     @achievements = Achievement.order(id: :desc)
   end
   
@@ -54,5 +54,12 @@ class AchievementController < ApplicationController
   
   def set_achievement
     @achievement = Achievement.find(params[:id])
+  end
+
+  def login_check
+    if logged_in?
+    else
+      redirect_to new_session_path
+    end
   end
 end

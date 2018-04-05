@@ -7,9 +7,9 @@
         <tr class="warning">
           <!--つぶやき-->
           <td class="warning col-md-8"><%= achievement.content %></td>
-          <td class="warning col-md-2 text-right "><%= link_to "ほめる", message_path(achievement.id), class:"btn btn-danger" %></td>
-          <td class="warning col-md-1"><%= link_to "編集", edit_achievement_path(achievement.id), class:"btn btn-info" %></td>
-          <td class="warning col-md-1"><%= link_to "削除", achievement_path(achievement.id), class:"btn btn-info", method: :delete %></td>
+            <td class="warning col-md-2 text-right "><%= link_to "ほめる", message_path(achievement.id), class:"btn btn-danger" %></td>
+            <td class="warning col-md-1"><%= link_to "編集", edit_achievement_path(achievement.id), class:"btn btn-info" %></td>
+            <td class="warning col-md-1"><%= link_to "削除", achievement_path(achievement.id), class:"btn btn-info", method: :delete %></td>
         </tr>
         
           
@@ -18,9 +18,9 @@
           <% if msg.message != nil %>
           <tr class="comment-color">  
             <td class="comment-color"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><%= msg.message %></td>
-            <td class="comment-color">　</td>
-            <td class="comment-color"><%= link_to "編集", edit_message_path(msg.id), class:"btn btn-info" %></td>
-            <td class="comment-color"><%= link_to "削除", message_path(msg.id), class:"btn btn-info", method: :delete %></td>
+              <td class="comment-color">　</td>
+              <td class="comment-color"><%= link_to "編集", edit_message_path(msg.id), class:"btn btn-info" %></td>
+              <td class="comment-color"><%= link_to "削除", message_path(msg.id), class:"btn btn-info", method: :delete %></td>
           </tr>
           <% end %>
         <% end %>

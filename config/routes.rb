@@ -10,12 +10,13 @@ Rails.application.routes.draw do
       end
     end
     
-    
-    
     resources :achievement do
         collection do
           post:confirm
           get:list
         end
     end
+
+    resources :sessions, only: [:new, :create, :destroy]
+    resources :users
 end

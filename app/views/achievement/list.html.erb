@@ -6,10 +6,15 @@
       <% @achievements.each do |achievement| %>
         <tr class="warning">
           <!--つぶやき-->
-          <td class="warning col-md-8"><%= achievement.content %></td>
-            <td class="warning col-md-2 text-right "><%= link_to "ほめる", message_path(achievement.id), class:"btn btn-danger" %></td>
+          <td class="warning col-md-8"><%= link_to "#{achievement.content}", achievement_path(achievement.id) %></td>
+          <td class="warning col-md-2 text-right "><%= link_to "ほめる", message_path(achievement.id), class:"btn btn-danger" %></td>
+          <% if achievement.user_id == current_user.id %>
             <td class="warning col-md-1"><%= link_to "編集", edit_achievement_path(achievement.id), class:"btn btn-info" %></td>
             <td class="warning col-md-1"><%= link_to "削除", achievement_path(achievement.id), class:"btn btn-info", method: :delete %></td>
+          <% else %>
+            <td class="comment-color">　</td>
+            <td class="comment-color">　</td>
+          <% end %>
         </tr>
         
           
@@ -18,6 +23,7 @@
           <% if msg.message != nil %>
           <tr class="comment-color">  
             <td class="comment-color"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><%= msg.message %></td>
+              <td class="comment-color">　</td>
               <td class="comment-color">　</td>
               <td class="comment-color"><%= link_to "編集", edit_message_path(msg.id), class:"btn btn-info" %></td>
               <td class="comment-color"><%= link_to "削除", message_path(msg.id), class:"btn btn-info", method: :delete %></td>

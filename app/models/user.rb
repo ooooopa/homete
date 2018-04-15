@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :achievements
   has_many :favorites, dependent: :destroy
+  has_many :favorite_achievements, through: :favorites, source: :achievement
 
   validates :name, presence: true, length:{maximum:30}
   validates :email, presence: true, length:{maximum:255},

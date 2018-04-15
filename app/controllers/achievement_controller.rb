@@ -9,12 +9,14 @@ class AchievementController < ApplicationController
     if params[:back]
         @achievement = Achievement.new(achievement_params)
     else
-        @achievement = Achievement.new 
+        @achievement = Achievement.new
     end
   end
   
   def create
     @achievement = Achievement.new(achievement_params)
+    @achievement.user_id = @current_user.id
+    binding.pry
       if @achievement.save
         redirect_to  list_achievement_index_path
       else

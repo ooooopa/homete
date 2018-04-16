@@ -28,14 +28,6 @@ class AchievementController < ApplicationController
   end
   
   def edit
-    if @achievement.user_id == current_user.id
-      @editFlag = true
-    else
-      #flash.now[:danger] = '自分のつぶやきのみ編集できます'
-      #@achievements = Achievement.order(id: :desc)
-      #render "list"
-      @editFlag = false
-    end
   end
   
   def update
@@ -47,14 +39,8 @@ class AchievementController < ApplicationController
   end
   
   def destroy
-    if @achievement.user_id == current_user.id
-      @achievement.destroy
-      redirect_to list_achievement_index_path
-    else
-      flash.now[:danger] = '自分のつぶやきのみ削除できます'
-      @achievements = Achievement.order(id: :desc)
-      render "list"
-    end
+    @achievement.destroy
+    redirect_to list_achievement_index_path
   end
   
   def confirm

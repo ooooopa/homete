@@ -10,7 +10,13 @@
     <td class="top-font-color"><%= @user.email %></td>
   </tr>
   </table>
-
+  <br><br>
   <h1>お気に入り一覧</h1>
-
+  <table class="table">
+    <% @favorites_achievements.each do |fav| %>
+    <tr class="warning">
+      <td class="warning"><%= link_to "#{fav.content}", achievement_path(fav.id), class:"table-font-color" %></td>
+    </tr>
+    <% end %>
+  </table>
 </div>

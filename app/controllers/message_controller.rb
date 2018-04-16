@@ -17,6 +17,7 @@ class MessageController < ApplicationController
   
   def create
     @message = Message.new(message_params)
+    @message.user_id = current_user.id
     if @message.save
       redirect_to  list_achievement_index_path
     else

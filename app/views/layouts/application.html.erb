@@ -29,7 +29,7 @@
             <li><button type="button" class="btn btn-warning navbar-btn "><a href="/achievement/new" class="header-a">つぶやく</a></button></li>
             <% if logged_in? %>
               <li class="navbar-right"><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
-							<li><%= link_to "アカウント情報", user_path(current_user.id) %></li>
+							<li><%= link_to "#{current_user.name}", user_path(current_user.id) %></li>
             <% else %>
               <li class="navbar-right"><%= link_to "Login", new_session_path %></li>
               <li class="navbar-right"><%= link_to "Sign up", new_user_path %></li>

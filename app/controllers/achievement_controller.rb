@@ -16,11 +16,12 @@ class AchievementController < ApplicationController
   def create
     @achievement = Achievement.new(achievement_params)
     @achievement.user_id = current_user.id
-      if @achievement.save
-        redirect_to  list_achievement_index_path
-      else
-        render "new"
-      end
+    if @achievement.save
+      ContactMailer.contact_mail(@achievement).deliver
+      redirect_to  list_achievement_index_path
+    else
+      render "new"
+    end
   end
   
   def list

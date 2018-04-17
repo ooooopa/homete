@@ -10,6 +10,42 @@
     <td class="top-font-color"><%= @user.email %></td>
   </tr>
   </table>
+  <br>
+
+  <% if @user.image.url == nil %>
+    <h3 class="top-font-color">アイコンを設定してください</h3>
+
+    <%= form_with(model:@user, local: true, url:user_path) do |form| %>
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this feed from being saved:</h2>
+
+          <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= form.label :image %>
+        <%= image_tag(@user.image.url) if @user.image.url %>
+        <%= form.file_field :image, id: :feed_image %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>
+      <strong>Image:</strong>
+      <%= image_tag @user.image %>
+    </p>
+  <% end %>
+
+
   <br><br>
   <h1>お気に入り一覧</h1>
   <table class="table">

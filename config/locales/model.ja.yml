@@ -1,0 +1,23 @@
+---
+ja:
+  activerecord:
+    models:
+      achievements: やったこと
+      favorites: お気に入り
+      messages: ほめる
+      users: ユーザー
+    attributes:
+      achievements:
+        content: つぶやき
+        user_id: ユーザーID
+      favorites:
+        user_id: ユーザーID
+        achievement_id: つぶやきID
+      messages:
+        achievement_id: つぶやきID
+        message: ほめるメッセージ
+        user_id: ユーザーID
+      users:
+        name: ユーザー名
+        email: メールアドレス
+        password_digest: パスワード

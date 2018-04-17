@@ -7,6 +7,14 @@ class UsersController < ApplicationController
   end
 
   def create
+    binding.pry
+    if params[:image] != nil
+        binding.pry
+        img = MiniMagick::Image.read(params[:image])
+        img.resize "50x50"
+        img.write "public/uploads/user/image/99/hoge.jpg"
+    end
+
     @user = User.new(user_params)
     if @user.save
       redirect_to user_path(@user.id)
@@ -20,6 +28,8 @@ class UsersController < ApplicationController
   end
 
   def update
+
+    #@user.image.resize_image(@user)
     if @user.update(user_params)
       redirect_to user_path(@user.id)
     else

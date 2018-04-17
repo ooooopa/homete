@@ -31,6 +31,7 @@
       <div class="field">
         <%= form.label :image %>
         <%= image_tag(@user.image.url) if @user.image.url %>
+        <%= image_tag(@user.image.thumb.url) if @user.image.url %>
         <%= form.file_field :image, id: :feed_image %>
       </div>
 

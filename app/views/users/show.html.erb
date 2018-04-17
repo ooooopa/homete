@@ -40,10 +40,14 @@
     <% end %>
   <% else %>
     <p>
-      <strong>Image:</strong>
+      <strong class="top-font-color">アイコン</strong>
+    </p>
+    <p>
       <%= image_tag @user.image %>
     </p>
   <% end %>
+
+  <%= link_to "編集", edit_user_path(@user.id), class:"btn btn-danger col-md-offset-11" %>
 
 
   <br><br>

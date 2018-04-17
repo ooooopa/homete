@@ -20,11 +20,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
+    if @user.update(user_params)
       redirect_to user_path(@user.id)
-    #else
-      #render "show"
-    #  redirect_to user_path(@user.id)
+    else
+      redirect_to user_path(@user.id)
+    end
+  end
+
+  def edit
   end
 
   private

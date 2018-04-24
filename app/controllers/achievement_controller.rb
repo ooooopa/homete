@@ -65,7 +65,7 @@ class AchievementController < ApplicationController
   
   private
   def achievement_params
-    params.require(:achievement).permit(:content, :image)
+    params.require(:achievement).permit(:content, :image, :image_cache)
   end
   
   def set_achievement

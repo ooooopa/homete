@@ -9,7 +9,7 @@
             <%= form_with(model:@achievement, url:achievement_index_path, local:true) do |form| %>
                 <%= form.hidden_field :content %>
                 <p><%= @achievement.content %></p>
-                <%= image_tag(@achievement.image.url, :class => "center-block") if @achievement.image.url %>
+                <%= image_tag(@achievement.image, :class => "center-block") if @achievement.image.url %>
                 <%= form.hidden_field :image %>
                 <%= hidden_field_tag :"cache[image]",@achievement.image.cache_name %>
                 <div class="row">

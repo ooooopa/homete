@@ -9,12 +9,18 @@
             <%= form_with(model:@achievement, url:achievement_index_path, local:true) do |form| %>
                 <%= form.hidden_field :content %>
                 <p><%= @achievement.content %></p>
+                <%= image_tag(@achievement.image.url, :class => "center-block") if @achievement.image.url %>
+                <%= form.hidden_field :image %>
+                <%= hidden_field_tag :"cache[image]",@achievement.image.cache_name %>
                 <div class="row">
+                <br>
                 <%= form.submit "投稿する", class: "btn btn-warning col-md-offset-6 col-md-2" %>
             <% end %>
         
             <%= form_with(model:@achievement, url:new_achievement_path, local:true, method:"get") do |form| %>
                 <%= form.hidden_field :content %>
+                <%= form.hidden_field :image %>
+                <%= hidden_field_tag :"cache[image]",@achievement.image.cache_name %>
                 <%= form.submit "戻る", name: "back", class: "btn btn-warning col-md-offset-1 col-md-2" %>
                 </div>
             <% end %>

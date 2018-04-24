@@ -8,6 +8,9 @@ class AchievementController < ApplicationController
   def new
     if params[:back]
         @achievement = Achievement.new(achievement_params)
+        if params[:cache][:image] != ""        
+          @achievement.image.retrieve_from_cache! params[:cache][:image]
+        end
     else
         @achievement = Achievement.new
     end
@@ -16,6 +19,12 @@ class AchievementController < ApplicationController
   def create
     @achievement = Achievement.new(achievement_params)
     @achievement.user_id = current_user.id
+    
+    if params[:cache][:image] != ""
+      @achievement.image.retrieve_from_cache! params[:cache][:image]
+      @achievement.save!
+    end
+    
     if @achievement.save
       ContactMailer.contact_mail(@achievement).deliver
       redirect_to  list_achievement_index_path
@@ -56,7 +65,7 @@ class AchievementController < ApplicationController
   
   private
   def achievement_params
-    params.require(:achievement).permit(:content)
+    params.require(:achievement).permit(:content, :image)
   end
   
   def set_achievement

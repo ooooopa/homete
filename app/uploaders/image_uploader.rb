@@ -9,7 +9,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   #process :resize_to_limit => [50,50]
 
-  process resize_to_fit: [600, nil]
+  process resize_to_fit: [200, nil]
   version :thumb do
     process resize_to_fit: [200,nil]
   end
@@ -63,7 +63,6 @@ class ImageUploader < CarrierWave::Uploader::Base
      
      path = user.image.path
      image = MiniMagick::Image.open(path)
-binding.pry
      image.resize "50x50"
      image.write("test.png")
      

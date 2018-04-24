@@ -9,6 +9,7 @@
             <%= form_with(model:@achievement, url:achievement_index_path, local:true) do |form| %>
                 <%= form.hidden_field :content %>
                 <p><%= @achievement.content %></p>
+                <p><%= image_tag(@achievement.image, :class => "center-block") %></p>
             <% end %>
         
             <% unless @achievement.user == current_user %>
